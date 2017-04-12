@@ -1,0 +1,15 @@
+Algoritmo Busca Elemento
+
+Recebe  : TAM, VET, NUM, I;
+
+Para I = 0 até TAM - 1 FAÇA
+  SE VET[TAM] = NUM
+    RETURN NUM;
+  FIM-SE
+FIM-PARA
+    RETURN 0;
+    
+FIM.
+
+NOME: RAFAEL FRADE LEÃO 
+MATRÍCULA: 15/0145527
