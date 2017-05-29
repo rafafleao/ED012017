@@ -163,7 +163,7 @@ void ImprimirCTT(Inicio* l){
 		}
 	
 	}
-	if(j==0){ /*NAO PODERIA SER UM ELSE?*/
+	if(j==0){ 
 		printf("O contato buscado nao existe. Deseja inclui-lo? (S/N)\n");
 		scanf("%c", &validador);
 		getchar();
