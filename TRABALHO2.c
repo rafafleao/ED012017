@@ -58,6 +58,7 @@ void Inserir(Inicio* l){
 	getchar();
     novo->prox = l->prim;
 	l->prim = novo;
+	printf("Contato inserido com sucesso!");
 }
 
 void Ordenar(Inicio* l){
@@ -138,6 +139,7 @@ void ImprimirTudo(Inicio* l){
 		printf("Telefone: %s\n", p->telefone);
 		printf("\n");
 		getchar();
+		getchar();
 		}
 	}
 }
@@ -161,9 +163,9 @@ void ImprimirCTT(Inicio* l){
 			getchar();
 			j = 1;
 		}
-	
+
 	}
-	if(j==0){ 
+	if(j==0){
 		printf("O contato buscado nao existe. Deseja inclui-lo? (S/N)\n");
 		scanf("%c", &validador);
 		getchar();
