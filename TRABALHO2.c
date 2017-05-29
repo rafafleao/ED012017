@@ -59,6 +59,7 @@ void Inserir(Inicio* l){
     novo->prox = l->prim;
 	l->prim = novo;
 	printf("Contato inserido com sucesso!");
+	getchar();
 }
 
 void Ordenar(Inicio* l){
