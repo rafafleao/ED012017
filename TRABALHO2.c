@@ -1,3 +1,14 @@
+/*
+Universidade de Brasilia
+Instituto de Ciencias Exatas
+Departamento de Ciencia da Computacao
+Estrutura de Dados 1/2017
+Alunos: Matheus Stauffer Viana de Oliveira e Rafael Frade Le√£o
+Matricula: 16/0071852 e 15/0145527
+Turma: B
+Vers√£o do compilador: gcc (SUSE Linux) 6.1.1 20160707 [gcc-6-branch revision 238088]
+Copyright (C) 2016 Free Software Foundation, Inc.
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -39,7 +50,7 @@ void Inserir(Inicio* l){
         scanf("%[^\n]s%*c", novo->nome);
     }
     getchar();
-	printf("Insira o endereÁo eletronico do contato: \n");
+	printf("Insira o endere√ßo eletronico do contato: \n");
 	scanf("%[^\n]s%*c", novo->email);
 	getchar();
     printf("Insira o telefone do contato: \n");
@@ -59,8 +70,9 @@ void Ordenar(Inicio* l){
 	printf("Caso queira ordenar por email, digite 2, e se quiser por telefone, 3.\n");
 	scanf("%d", &qual);
 	/*Os contatos sao ordenados pelo algortimo BubbleSort, de acordo com a escolha do
-	usuario: por nome, email ou telefone. Sao utilizadas funÁoes da biblioteca
+	usuario: por nome, email ou telefone. Sao utilizadas fun√ßoes da biblioteca
 	string.h para tornar o codigo menos denso.*/
+	aux = l->prim;
 	if(qual == 1){
 		while(aux!=NULL){
 			p = aux->prox;
@@ -74,7 +86,7 @@ void Ordenar(Inicio* l){
 			}
 			aux = aux->prox;
 		}
-	}/*Fim ordenaÁao por NOME*/
+	}/*Fim ordena√ßao por NOME*/
 	else{
 		if(qual == 2){
 			while(aux!=NULL){
@@ -89,7 +101,7 @@ void Ordenar(Inicio* l){
 				}
 				aux = aux->prox;
 			}
-		}/*Fim ordenaÁao por EMAIL*/
+		}/*Fim ordena√ßao por EMAIL*/
 		else{
 			while(aux!=NULL){
 				p = aux->prox;
@@ -109,14 +121,24 @@ void Ordenar(Inicio* l){
 
 void ImprimirTudo(Inicio* l){
 	Agenda* p;
+	int validador;
 
 	printf("\t\tCONTATOS\t\t\n");
-	for(p = l->prim; p != NULL; p = p->prox){
+	if(l->prim == NULL){
+		printf("Sua Lista de contatos esta vazia! Digite 1 se deseja incluir novos contatos.\n");
+		scanf("%d", &validador);
+		if(validador == 1){
+			Inserir(l);
+		}
+	}
+	else{
+		for(p = l->prim; p != NULL; p = p->prox){
 		printf("Nome: %s\n", p->nome);
 		printf("Email: %s\n", p->email);
 		printf("Telefone: %s\n", p->telefone);
 		printf("\n");
 		getchar();
+		}
 	}
 }
 
@@ -137,10 +159,11 @@ void ImprimirCTT(Inicio* l){
 			printf("\t\t%s\t\t\n", p->email);
 			printf("\t\t%s\t\t\n", p->telefone);
 			getchar();
+			j = 1;
 		}
-		j = 1;
+	
 	}
-	if(j==0){ //NAO PODERIA SER UM ELSE?
+	if(j==0){ /*NAO PODERIA SER UM ELSE?*/
 		printf("O contato buscado nao existe. Deseja inclui-lo? (S/N)\n");
 		scanf("%c", &validador);
 		getchar();
@@ -200,14 +223,14 @@ void Remover(Inicio* l){
 	if(p != NULL){
 		if(ant == NULL){
 			l->prim = p->prox;
-			/*O elemento a ser removido foi encontrado na primeira posiÁao da lista,
+			/*O elemento a ser removido foi encontrado na primeira posi√ßao da lista,
 			cujo ponteiro passa a apontar para o proximo elemento, afim de que o
-			no¥ encontrado possa ser removido.*/
+			no¬¥ encontrado possa ser removido.*/
 		}
 		else{
 			ant->prox = p->prox;
 			/*O elemento a ser removido foi encontrado no meio lista. Para efetuar a
-			operaÁao, precisamos que a referencia(Ponteiro) do elemento anterior passe
+			opera√ßao, precisamos que a referencia(Ponteiro) do elemento anterior passe
 			a ser a do elemento removido, a fim de manter o encadeamento da lista.*/
 		}
 		free(p);
@@ -237,7 +260,7 @@ int main(){
 		printf("7 - Encerrar programa\n");
 		scanf("%d", &keep);
 		while(keep < 1 || keep > 7){
-			printf("Informe uma opÁao valida!\n");
+			printf("Informe uma op√ßao valida!\n");
 			scanf("%d", &keep);
 		}
 		switch(keep){
